@@ -2,30 +2,29 @@
 export function numberValue() {
     const playerNumberArray = [];
 
-    // Boucle pour récupérer les valeurs des champs de saisie et les ajouter dans le tableau
     for (let i = 0; i < 6; i++) {
         const input = document.getElementById("chiffre" + (i + 1));
         const chiffre = parseInt(input.value.trim());
         
-        // Vérifier si le chiffre est différent de null
+        // Vérifier si le chiffre est un nombre valide
         if (!isNaN(chiffre)) {
-            if (i < 5) {
-                // Vérifier si le chiffre (array 0 a 5)
-                if (playerNumberArray.slice(0, 5).includes(chiffre)) {
-                    alert("Erreur : Les cinq premiers chiffres ne peuvent pas être similaires.");
-                    // Réinitialiser la valeur du champ de saisie
-                    input.value = "";
-                    return [];
-                }
+            // Vérifier si le chiffre n'est pas déjà présent dans les 5 premiers éléments
+            if (i < 5 && playerNumberArray.slice(0, 5).includes(chiffre)) {
+                alert("Nombre similaire !!");
+                // Réinitialiser la valeur du champ de saisie
+                input.value = "";
+                return [];
             }
+            // Ajouter le chiffre au tableau
             playerNumberArray.push(chiffre);
         } else {
-            // pas besoin de faire plus le bouton est désactivé si un input est null 
-            alert('Veuillez remplir tous les champs avec des chiffres valides.');
+            alert('Veuillez remplir tous les champs avec un nbr compris entre 0 et 49');
             return [];
         }
     }
-
+    
+    document.getElementById('joue').disabled = true;
+    
     return playerNumberArray;
 }
 
