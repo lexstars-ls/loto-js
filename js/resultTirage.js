@@ -1,6 +1,6 @@
 // Un fichier permettant de comparer le tirage et les valeurs du joueur
 // retourne le nombre de chiffre similaire
-import { numberValue } from "./numberValue";
+import { numberValue } from "./nombrePlayer";
 import { tirageLoto } from "./tirageLoto";
 
 export function resultTirage() {
@@ -11,9 +11,9 @@ export function resultTirage() {
     if (playerNumber.length === 6) {
         let NombreBon = 0;
 
-        // Ajoutez 'let' devant 'i' pour une portée locale
+        // Comparer les éléments des deux tableaux
         for (let i = 0; i < playerNumber.length; i++) {
-            if (playerNumber[i] === tirage[i]) {
+            if (tirage.includes(playerNumber[i])) {
                 NombreBon++;
             }
         }
@@ -21,12 +21,9 @@ export function resultTirage() {
         document.getElementById('joue').disabled = true;
         document.getElementById('rejouer').disabled = false;
 
-        
-        const resultatTitle = document.createElement('h2');
-        resultatTitle.textContent = `Vous avez ${NombreBon} bons numéros.`;
-        document.querySelector('main').appendChild(resultatTitle);
-
         return NombreBon;
     } 
 }
+
+
 

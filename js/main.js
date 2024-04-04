@@ -1,17 +1,36 @@
-import { numberValue } from "./numberValue";
-import { tirageLoto } from "./tirageLoto";
+import { renduLoto } from "./affichageLoto";
 import { resultTirage } from "./resultTirage";
+import { renduResult } from "./affichageResult";
 
-// Sélectionnez le bouton 'joue'
 const btnJouer = document.getElementById('joue');
 
-// Ajoutez un gestionnaire d'événements au clic sur le bouton 'joue'
 btnJouer.addEventListener('click', function () {
-
-    // Obtenir le résultat du tirage
-    const resultYEA = resultTirage();
     
+    renduLoto();
     
-    console.log(resultYEA)
-
+    resultTirage();
+    renduResult();
+    
 });
+
+document.getElementById('rejouer').addEventListener('click', function () {
+    // Réinitialiser les valeurs des inputs en définissant leur valeur sur ''
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.value = '';
+    });
+
+  
+    const tirageContainer = document.getElementById('tirageContainer');
+    tirageContainer.querySelectorAll('.imgContainer').forEach(element => {
+        element.remove();
+    });
+    const h2Result = document.querySelector('.h2Result');
+    if (h2Result) {
+        h2Result.remove();
+    }
+
+
+    document.getElementById('joue').disabled = false;
+    document.getElementById('rejouer').disabled = true;
+});
+
