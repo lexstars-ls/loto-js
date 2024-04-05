@@ -2,8 +2,7 @@
 export function tirageLoto() {
     const numerosTires = [];
     const nombresTirage = 6;
-    const inputs = document.querySelectorAll('input[type="number"]');
-
+   
     // // Vérifiez s'il y a exactement 6 inputs non nuls
     // if (inputs.length !== 6 || Array.from(inputs).some(input => !input.value.trim()) ) {
     //     console.error("Erreur : Tous les champs doivent être remplis avec des valeurs numériques.");

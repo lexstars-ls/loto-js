@@ -19,7 +19,7 @@ export function numberValue() {
             // Ajouter le chiffre au tableau
             playerNumberArray.push(chiffre);
         } else {
-            alert('Veuillez remplir tous les champs avec un nbr compris entre 0 et 49');
+            console.error('Veuillez remplir tous les champs avec un nbr compris entre 0 et 49');
             return [];
         }
     }

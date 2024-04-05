@@ -2,9 +2,12 @@
 // retourne le nombre de chiffre similaire
 import { numberValue } from "./nombrePlayer";
 import { tirageLoto } from "./tirageLoto";
-
+import { resetFunction } from "./reset";
 export function resultTirage() {
     const playerNumber = numberValue();
+    if(playerNumber.length ===0){
+        resetFunction();
+    }
     const tirage = tirageLoto();
     
     // Vérifiez si playerNumber a exactement 6 éléments
