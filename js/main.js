@@ -3,14 +3,17 @@ import { resultTirage } from "./resultTirage";
 import { renduResult } from "./affichageResult";
 import { resetFunction } from "./reset";
 
-document.getElementsById('joue').addEventListener('click', function () {
+const btnJouer = document.getElementById('joue');
 
+btnJouer.addEventListener('click', function () {
     renduLoto();
     resultTirage();
     renduResult();
 });
 
-document.getElementById('rejouer').addEventListener('click', function () {
+const btnRejouer = document.getElementById('rejouer');
+
+btnRejouer.addEventListener('click', function () {
 
     resetFunction();
     document.getElementById('joue').disabled = false;

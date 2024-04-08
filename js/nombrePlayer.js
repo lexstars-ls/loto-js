@@ -1,8 +1,10 @@
 // - Un fichier permettant de récupérer les valeurs rentrées par le joueur
 export function numberValue() {
     const playerNumberArray = [];
-    
-    
+    // const numberInputs = document.querySelectorAll('input[type="number"]');
+    // numberInputs.addEventListener('keyup', doubleChiffre);
+    // function doubleChiffre(){
+    // }
     for (let i = 0; i < 6; i++) {
         const input = document.getElementById("chiffre" + (i + 1));
         const chiffre = parseInt(input.value.trim());
@@ -19,13 +21,11 @@ export function numberValue() {
             // Ajouter le chiffre au tableau
             playerNumberArray.push(chiffre);
         } else {
-            console.error('Veuillez remplir tous les champs avec un nbr compris entre 0 et 49');
+            alert('Veuillez remplir tous les champs avec un nbr compris entre 0 et 49');
             return [];
         }
     }
-
     document.getElementById('joue').disabled = true;
-
     return playerNumberArray;
 }
 
